@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "measurement_units",
+  "info": {
+    "singularName": "measurement-unit",
+    "pluralName": "measurement-units",
+    "displayName": "MeasurementUnit"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isActive": {
+      "type": "boolean"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "measurement_unit"
+    },
+    "unit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::unit.unit",
+      "inversedBy": "measurement_units"
+    }
+  }
+}

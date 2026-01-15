@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_sales_units",
+  "info": {
+    "singularName": "product-sales-unit",
+    "pluralName": "product-sales-units",
+    "displayName": "ProductSalesUnit"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "product_sales_units"
+    },
+    "sales_unit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sales-unit.sales-unit",
+      "inversedBy": "product_sales_units"
+    },
+    "isDefault": {
+      "type": "boolean",
+      "default": false
+    },
+    "displayOrder": {
+      "type": "integer",
+      "default": 1
+    }
+  }
+}

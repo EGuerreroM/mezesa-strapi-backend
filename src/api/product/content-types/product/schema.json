@@ -1,0 +1,110 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "sku": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "description": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "length": {
+      "type": "decimal",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "width": {
+      "type": "decimal",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "height": {
+      "type": "decimal",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "measurement_unit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::measurement-unit.measurement-unit",
+      "inversedBy": "products"
+    },
+    "cbm": {
+      "type": "decimal",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "product_sales_units": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-sales-unit.product-sales-unit",
+      "mappedBy": "product"
+    },
+    "isActive": {
+      "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": true
+    },
+    "product_colors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-color.product-color",
+      "mappedBy": "product"
+    },
+    "product_images": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-image.product-image",
+      "mappedBy": "product"
+    }
+  }
+}

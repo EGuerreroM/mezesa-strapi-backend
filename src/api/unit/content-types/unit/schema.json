@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "units",
+  "info": {
+    "singularName": "unit",
+    "pluralName": "units",
+    "displayName": "Unit"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "abbreviation": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "measurement_units": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::measurement-unit.measurement-unit",
+      "mappedBy": "unit"
+    },
+    "sales_units": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sales-unit.sales-unit",
+      "mappedBy": "unit"
+    }
+  }
+}

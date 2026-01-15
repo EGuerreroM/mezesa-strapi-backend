@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sales_units",
+  "info": {
+    "singularName": "sales-unit",
+    "pluralName": "sales-units",
+    "displayName": "SalesUnit"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "unit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::unit.unit",
+      "inversedBy": "sales_units"
+    },
+    "product_sales_units": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-sales-unit.product-sales-unit",
+      "mappedBy": "sales_unit"
+    },
+    "baseQuantity": {
+      "type": "integer",
+      "default": 1
+    }
+  }
+}
